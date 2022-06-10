@@ -3,27 +3,18 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { getImages } from '../apis/photo';
+import { getImages } from '../apis';
 import { IPhoto } from '../types';
 import Photo from './Photo';
 
-const PhotoList = () => {
-    const [imageList, setImageList] = useState<IPhoto[]>();
-    
-    useEffect(()=> {
-        let isMounted = true;
-
-        getImages().then(data => {
-            if (isMounted) {
-                setImageList(data);
-            }
-        })
-        return () => {isMounted = false};
-    }, []);
+const PhotoList = ({list}: {
+    list: IPhoto[]
+}) => {
+    console.log(list)
 
     return (
         <StyledUl>
-            {imageList?.map((img) => (
+            {list?.map((img) => (
                 <Photo key={img.id} {...img} />
             ))
             }
