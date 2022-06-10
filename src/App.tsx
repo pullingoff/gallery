@@ -1,18 +1,21 @@
 
 import React, {  } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from './components/Header';
 import { MainContent } from './components/MainContent';
+import styledTheme from './styles/theme';
 // import SearchBar from './components/SearchBar';
 
 
 function App() {
   
   return (
-    <Wrapper>
-      <Header />
-      <MainContent />
-    </Wrapper>
+    <ThemeProvider theme={styledTheme} >
+      <Wrapper>
+        <Header />
+        <MainContent />
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
@@ -25,7 +28,7 @@ const Loading = () => {
 const Wrapper = styled.div`
 display: flex;
 flex-flow: column nowrap;
-align-items: center;
+align-items: stretch;
 `
 
 export default App;

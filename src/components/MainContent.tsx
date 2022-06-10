@@ -53,36 +53,43 @@ export const MainContent = ({...props}) => {
     }
     
     return (
-        <>
-        <Wrapper onSubmit={handleSubmit}>
-            <TextInput type='text' 
-                        placeholder='검색하세요'
-                        maxLength={30}
-                        value={searchWord}
-                        onChange={handleChange}
-                        />
-            <SubmitBtn type='submit' />
-        </Wrapper>
-        <PhotoList/>
-        </>
+        <MainWrapper>
+            <SearchBarForm onSubmit={handleSubmit}>
+                <TextInput type='text' 
+                            placeholder='검색하세요'
+                            maxLength={30}
+                            value={searchWord}
+                            onChange={handleChange}
+                            />
+                <SubmitBtn type='submit' />
+            </SearchBarForm>
+            <PhotoList/>
+        </MainWrapper>
     )
 }
 
-
+const MainWrapper = styled.main`
+padding: 5rem;
+`
 
 const StyledUl = styled.ul`
 margin: 30px auto;
 display: grid;
 grid-gap: 1rem;
 list-style: none;
-grid-template-columns: repeat(3, 1fr);
 text-align: center;
+padding: 0;
+grid-template-columns: repeat(auto-fit, minmax(${({theme}) => theme.photo.maxWidth}, auto));
 `
+// @media (min-width: ${({theme}) => theme.device.sm}) {
+//     grid-template-columns: repeat(2, 1fr);
+// }
 
-const Wrapper = styled.form`
+const SearchBarForm = styled.form`
 display: flex;
 flex-flow: row nowrap;
 align-items: center;
+justify-content: center;
 `
 
 const TextInput = styled.input`
@@ -99,5 +106,3 @@ cursor: pointer;
     background: salmon;
 }
 `
-
-// export default SearchBar;

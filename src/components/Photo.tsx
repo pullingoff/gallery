@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { IPhoto } from "../types";
 
+// 컬러에 보색으로 글씨 보이게 하기!
 const Photo = ({...props}: IPhoto) => {
     const imgUrl = props.urls.small || ''
     const author = props.user.name
@@ -14,13 +15,12 @@ const Photo = ({...props}: IPhoto) => {
                     src={imgUrl} />
                 <DetailWrapper>
                     <Detail>
-                        <a href={authorPortFolio} 
-                            style={{color: 'white'}}
+                        <AuthorDetail href={authorPortFolio} 
                             target='_blank' rel="noreferrer">
                             <img src={authorImg} alt={author} />
                             <br/>
                             <span>{author}</span>
-                        </a>
+                        </AuthorDetail>
                     </Detail>
                 </DetailWrapper>
             {/* </InnerWrapper> */}
@@ -51,6 +51,7 @@ transition: .5s ease;
 backface-visibility: hidden;
 margin: auto;
 max-height: inherit;
+max-width: ${({theme}) => theme.photo.maxWidth}; 
 `
 
 const DetailWrapper = styled.div`
@@ -69,5 +70,16 @@ color: white;
 font-size: 16px;
 font-weight: bold;
 `
+
+const AuthorDetail = styled.a`
+color: white;
+cursor: pointer;
+
+&:hover { 
+    
+    font-size: 1.1rem;
+}
+`
+
 
 export default Photo;

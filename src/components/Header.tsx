@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <StyledHeader onClick={refreshPage}>
-            PHOTOTYPE
+           📸 PHOTOTYPE
         </StyledHeader>
     )
 }
@@ -19,7 +19,10 @@ font-weight: bold;
 font-size: 3rem;
 padding: 2rem;
 cursor: pointer;
-
+text-align: center;
+&:hover {
+    color: salmon;
+}
 `
 
 export default Header;
