@@ -1,39 +1,17 @@
 
-import React, { useEffect, useState } from 'react';
+import React, {  } from 'react';
 import styled from 'styled-components';
-import { getImages } from './apis';
-import './App.scss';
 import Header from './components/Header';
-import PhotoList from './components/PhotoList';
-import SearchBar from './components/SearchBar';
-import { IPhoto } from './types';
+import { MainContent } from './components/MainContent';
+// import SearchBar from './components/SearchBar';
 
 
 function App() {
-  const [imageList, setImageList] = useState<IPhoto[]>();
-    
-  useEffect(()=> {
-      let isMounted = true;
-
-      getImages().then(data => {
-          if (isMounted) {
-              setImageList(data);
-          }
-      })
-      return () => {isMounted = false};
-  }, []);
-
   
   return (
     <Wrapper>
       <Header />
-      <SearchBar setImageList={setImageList} />
-      {imageList &&
-         <PhotoList list={imageList} /> 
-      }
-      {!imageList &&
-        <Loading/>
-      }
+      <MainContent />
     </Wrapper>
   );
 }
