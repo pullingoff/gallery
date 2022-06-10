@@ -2,6 +2,7 @@
   "name": "ptype",
   "version": "0.1.0",
   "private": true,
+  "homepage": "ptype",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -12,6 +13,7 @@
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
+    "typescript": "^4.7.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -37,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/styled-components": "^5.1.25"
   }
 }
