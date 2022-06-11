@@ -61,7 +61,7 @@ export const MainContent = ({...props}) => {
                             value={searchWord}
                             onChange={handleChange}
                             />
-                <SubmitBtn type='submit' />
+                <SubmitBtn type='submit' value='검색' />
             </SearchBarForm>
             <PhotoList/>
         </MainWrapper>
@@ -81,9 +81,6 @@ text-align: center;
 padding: 0;
 grid-template-columns: repeat(auto-fit, minmax(${({theme}) => theme.photo.maxWidth}, auto));
 `
-// @media (min-width: ${({theme}) => theme.device.sm}) {
-//     grid-template-columns: repeat(2, 1fr);
-// }
 
 const SearchBarForm = styled.form`
 display: flex;
@@ -93,16 +90,25 @@ justify-content: center;
 `
 
 const TextInput = styled.input`
+width: 90%;
+border: 2px solid ${({theme}) => theme.colors.highlight};
+padding: 1rem;
 font-size: 1.5rem;
 margin: 1rem 2rem;
 `
 
 const SubmitBtn = styled.input`
+width: 10%;
 border: none;
 font-size: 1.5rem;
-padding: 0.5rem 1rem;
+font-weight: bold;
+padding: 1rem;
 cursor: pointer;
+color: white;
+background-color: ${({theme}) => theme.colors.highlight};
 &:hover {
-    background: salmon;
+    background-color: initial;
+    color: ${({theme}) => theme.colors.highlight};
+    border: 2px solid ${({theme}) => theme.colors.highlight};
 }
 `

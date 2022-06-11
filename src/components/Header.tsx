@@ -20,8 +20,11 @@ font-size: 3rem;
 padding: 2rem;
 cursor: pointer;
 text-align: center;
+background: ${({theme}) => theme.colors.highlight};
+color: white;
 &:hover {
-    color: salmon;
+    background: initial;
+    color: ${({theme}) => theme.colors.highlight};
 }
 `
 
