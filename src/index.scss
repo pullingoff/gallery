@@ -22,3 +22,10 @@ a {
     color: initial;   
   }
 }
+
+// 모바일 사파리에서 모서리 둥근 것 방지
+input, textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}
