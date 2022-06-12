@@ -6,6 +6,7 @@ const CoverPhotos = (item: ICollection) => {
   const photos = item.preview_photos;
   const link = `https://unsplash.com/collections/${item.id}`;
 
+  // console.log(photos);
   return (
     <CoverPhotoA
       style={{ display: 'block' }}
@@ -22,22 +23,30 @@ const CoverPhotos = (item: ICollection) => {
             />
           </Left>
           <Right>
-            <div>
-              <img
-                src={photos[1].urls.regular}
-                alt={`${item.title}'s thumbnail`}
+            {photos[1] && (
+              <ThumbImg
+                url={photos[1].urls.regular}
+                title={`${item.title}'s thumbnail`}
               />
-            </div>
-            <div>
-              <img
-                src={photos[2].urls.regular}
-                alt={`${item.title}'s thumbnail`}
+            )}
+            {photos[2] && (
+              <ThumbImg
+                url={photos[2].urls.regular}
+                title={`${item.title}'s thumbnail`}
               />
-            </div>
+            )}
           </Right>
         </Collage>
       </div>
     </CoverPhotoA>
+  );
+};
+
+const ThumbImg = ({ url, title }: { url: string; title: string }) => {
+  return (
+    <div>
+      <img src={url} alt={title} />
+    </div>
   );
 };
 
