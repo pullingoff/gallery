@@ -1,3 +1,4 @@
+// 컬러 hex code로 흑백 중 더 구별이 쉬운 컬러를 리턴
 export const invertColor = (hex: string) => {
   if (hex.indexOf('#') === 0) {
     hex = hex.slice(1);
