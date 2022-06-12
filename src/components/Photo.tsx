@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { invertColor } from '../apis/color';
+import { invertColor } from '../utils/color';
 import { IPhoto } from '../types';
 
 // 컬러에 보색으로 글씨 보이게 하기!

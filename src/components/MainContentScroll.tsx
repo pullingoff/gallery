@@ -79,6 +79,10 @@ export const MainContentScroll = () => {
 };
 
 const MainWrapper = styled.main`
+  // grid item 갯수를 최대 3개로 유지하기 위함
+  max-width: calc(${({ theme }) => theme.device.xs} * 3.8);
+  align-self: center;
+  width: 100%;
   @media (min-width: ${({ theme }) => theme.device.sm}) {
     padding: 2rem 3rem;
   }

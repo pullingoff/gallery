@@ -10,7 +10,7 @@ const Collections = ({ collections }: { collections: ICollection[] }) => {
       <h3>Related Collections</h3>
       <CollectionWrapper>
         {collections.map(item => (
-          <div key={item.id} style={{ margin: '1rem 1rem 1rem 0' }}>
+          <div key={item.id} style={{ margin: '1rem 1rem 3rem 0' }}>
             <CoverPhotos {...item} />
             <CollectionDetail {...item} />
           </div>
@@ -25,7 +25,7 @@ const CollectionDetail = (item: ICollection) => {
   const tagList = item.tags.map(a => a.title);
   return (
     <>
-      <h4 style={{ margin: '1rem 0' }}>{item.title}</h4>
+      <h4 style={{ margin: '1rem 0 0.5rem' }}>{item.title}</h4>
       <span style={{ color: 'grey' }}>
         {item.total_photos} photos · Curated by {`${item.user.name}`}
       </span>
