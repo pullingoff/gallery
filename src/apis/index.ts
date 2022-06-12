@@ -49,9 +49,11 @@ export const getImage = async (imgId: string) => {
     );
 
     return {
+      blurhash: imgData.blur_hash,
+      description: imgData.description,
       author: imgData.user.name,
       username: imgData.user.username,
-      imgUrl: imgData.urls.full,
+      imgUrl: imgData.urls,
       cameraMake: imgData.exif.make,
       cameraModel: imgData.exif.model,
       focalLength: imgData.exif.focal_length,

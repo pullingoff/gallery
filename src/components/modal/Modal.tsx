@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Blurhash } from 'react-blurhash';
 import { getImage } from '../../apis';
 import {
   AuthorDetail,
