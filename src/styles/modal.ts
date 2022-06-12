@@ -57,6 +57,7 @@ export const ModalWrapper = styled.div`
     left: 0;
     width: initial;
     border-radius: initial;
+    height: 100%;
   }
 `;
 

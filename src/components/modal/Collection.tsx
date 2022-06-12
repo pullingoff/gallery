@@ -55,6 +55,10 @@ const StyledTag = styled.span`
 const CollectionWrapper = styled.section`
   display: flex;
   flex-flow: row nowrap;
+  // mobile mode
+  @media (max-width: ${({ theme }) => theme.device.sm}) {
+    flex-flow: column;
+  }
 `;
 
 export default Collections;
