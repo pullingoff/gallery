@@ -5,23 +5,19 @@ import { IPhoto } from '../types';
 
 // 컬러에 보색으로 글씨 보이게 하기!
 const Photo = ({ ...props }: IPhoto) => {
-  const imgUrl = props.urls.small || '';
   const author = props.user.name;
-  const authorImg = props.user.profile_image.small;
-  const authorPortFolio = props.user.portfolio_url;
-
   return (
     <>
-      <Img alt={props.alt_description || ''} src={imgUrl} />
+      <Img alt={props.alt_description || ''} src={props.urls.small || ''} />
       <DetailWrapper>
         <Detail>
           <AuthorDetail
-            href={authorPortFolio}
+            href={props.user.portfolio_url}
             target="_blank"
             rel="noreferrer"
             color={invertColor(props.color)}
           >
-            <img src={authorImg} alt={author} />
+            <img src={props.user.profile_image.small || ''} alt={author} />
             <br />
             <span>{author}</span>
           </AuthorDetail>

@@ -1,5 +1,4 @@
 import React, { lazy, Suspense, useState } from 'react';
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import { IImageListData } from '../types';
 import Photo from './Photo';
@@ -68,6 +67,3 @@ const StyledUl = styled.ul`
 `;
 
 export default PhotoList;
-function lazyWithPreload(arg0: () => Promise<any>) {
-  throw new Error('Function not implemented.');
-}

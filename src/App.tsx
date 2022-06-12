@@ -9,7 +9,6 @@ function App() {
     <ThemeProvider theme={styledTheme}>
       <Wrapper>
         <Header />
-
         <MainContentScroll />
       </Wrapper>
     </ThemeProvider>
