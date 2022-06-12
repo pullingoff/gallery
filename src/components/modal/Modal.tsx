@@ -21,16 +21,15 @@ const Modal = ({ modalImgId }: { modalImgId: string }) => {
   useEffect(() => {
     if (modalImgId) {
       getImage(modalImgId).then(resp => {
-        if (resp) {
-          setModalInfo(resp);
-        }
+        if (resp) setModalInfo(resp);
       });
+      // 모달 열릴 때 백그라운드 스크롤 막음
       document.body.style.overflow = 'hidden';
     }
   }, [modalImgId]);
 
   const closeModal = () => {
-    setModalInfo({});
+    setModalInfo({}); // 모달 정보 초기화
     document.body.style.overflow = 'unset';
   };
 

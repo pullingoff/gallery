@@ -4,26 +4,26 @@ export interface IPhoto {
   updated_at: string;
   blur_hash: string;
   color: string;
-  description: string | null;
-  alt_description: string | null;
+  description?: string;
+  alt_description?: string;
   urls: IUrls;
   user: IAuthor;
 }
 
-type IUrls = {
-  raw: string;
+export type IUrls = {
+  raw?: string;
   full: string;
   regular: string;
   small: string;
-  thumb: string;
-  small_s3: string;
+  thumb?: string;
+  small_s3?: string;
 };
 
 interface IAuthor {
   id: string;
   name: string;
   portfolio_url: string;
-  profile_image: any;
+  profile_image: IUrls;
 }
 
 export interface IImageListData {
@@ -39,9 +39,7 @@ export interface ICollection {
     photos: string;
   };
   preview_photos: {
-    urls: {
-      regular: string;
-    };
+    urls: IUrls;
   }[];
   tags: [{ title: string }];
   total_photos: number;
