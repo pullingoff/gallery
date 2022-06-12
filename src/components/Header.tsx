@@ -6,7 +6,7 @@ const Header = () => {
     window.location.reload();
   };
 
-  return <StyledHeader onClick={refreshPage}>📸 PHOTOTYPE</StyledHeader>;
+  return <StyledHeader onClick={refreshPage}>📸 GALLERY</StyledHeader>;
 };
 
 const StyledHeader = styled.header`
