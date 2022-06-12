@@ -7,7 +7,9 @@ interface useIntersectionObserverProps {
   onIntersect: IntersectionObserverCallback;
 }
 
-const useIntersectionObserver = ({onIntersect}: useIntersectionObserverProps) => {
+const useIntersectionObserver = ({
+  onIntersect,
+}: useIntersectionObserverProps) => {
   const [target, setTarget] = useState<HTMLElement | null | undefined>(null);
 
   useEffect(() => {
@@ -15,21 +17,15 @@ const useIntersectionObserver = ({onIntersect}: useIntersectionObserverProps) =>
 
     const observer: IntersectionObserver = new IntersectionObserver(
       onIntersect,
-      { rootMargin : '100px', 
-        threshold : 0.5 }
+      { rootMargin: '100px', threshold: 0.5 }
     );
     observer.observe(target);
 
-    return () => observer && observer.disconnect()
+    return () => observer && observer.disconnect();
     // return () => observer.unobserve(target);
-  }, [
-    onIntersect,
-    target
-  ]);
+  }, [onIntersect, target]);
 
   return { setTarget };
 };
 
-export {
-  useIntersectionObserver
-};
+export { useIntersectionObserver };
