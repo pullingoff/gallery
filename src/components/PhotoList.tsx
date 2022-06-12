@@ -5,9 +5,8 @@ import Photo from './Photo';
 import Modal from './modal/Modal';
 
 const PhotoList = (imageInfo: IImageListData) => {
-  /* 모달이 열렸는지 여부를 불린으로 체크하는 대신 modalInfo 값이 있으면 
-        모달이 열린 것으로 간주함
-    */
+  /* 모달이 열렸는지 여부를 불린으로 체크하는 대신 modalInfo 값이 있으면 모달이 열린 것으로 간주
+   */
   const [modalImgId, setModalImgId] = useState<string>('');
 
   const clickHandler = (imgId: string) => {

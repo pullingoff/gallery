@@ -15,6 +15,7 @@ const ImgDetail = ({ ...props }: IModalInfo) => {
           <span>{props.downloads}</span>
         </div>
       </StatWrapper>
+      <h3>Information</h3>
       {props.cameraMake && props.cameraModel && (
         <span>
           카메라: {props.cameraMake}, {props.cameraModel}
