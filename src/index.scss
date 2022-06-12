@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width:419px;       
+   width: auto !important;  // 파이어폭스
+   width:419px;            // 윈도우 익스플로러
 }
 
 code {
