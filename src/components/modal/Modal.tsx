@@ -33,6 +33,17 @@ const Modal = ({ modalImgId }: { modalImgId: string }) => {
     document.body.style.overflow = 'unset';
   };
 
+  // 모달 열린 상태에서 esc 클릭시 모달 닫음
+  useEffect(() => {
+    const escKeyModalClose = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && modalImgId.length > 0) {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', escKeyModalClose);
+    return () => window.removeEventListener('keydown', escKeyModalClose);
+  }, []);
+
   return (
     <>
       {modalImgId.length > 0 && modalInfo.imgUrl ? (
