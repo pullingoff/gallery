@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { IImageListData } from '../types';
 import Photo from './Photo';
-import Modal from './modal/Modal';
+
+const LazyModal = lazy(() => import('./modal/Modal'));
 
 const PhotoList = (imageInfo: IImageListData) => {
-  /* 모달이 열렸는지 여부를 불린으로 체크하는 대신 modalInfo 값이 있으면 모달이 열린 것으로 간주
+  /* 모달이 열렸는지 여부를 불린으로 체크하는 대신 modalImgId 값이 있으면 모달이 열린 것으로 간주
    */
   const [modalImgId, setModalImgId] = useState<string>('');
 
   const clickHandler = (imgId: string) => {
     setModalImgId(imgId);
   };
+
   return (
     <StyledUl>
       {imageInfo?.results?.map(img => (
         <Wrapper
           key={img.id}
           color={img.color}
-          onClick={e => clickHandler(img.id)}
+          onClick={() => clickHandler(img.id)}
         >
           <Photo {...img} />
         </Wrapper>
       ))}
-      <Modal modalImgId={modalImgId} />
+      <Suspense fallback={null}>
+        {modalImgId.length > 0 ? <LazyModal modalImgId={modalImgId} /> : null}
+      </Suspense>
     </StyledUl>
   );
 };
@@ -63,3 +68,6 @@ const StyledUl = styled.ul`
 `;
 
 export default PhotoList;
+function lazyWithPreload(arg0: () => Promise<any>) {
+  throw new Error('Function not implemented.');
+}
