@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Blurhash } from 'react-blurhash';
 import { getImage } from '../../apis';
 import {
   AuthorDetail,
@@ -48,7 +49,14 @@ const Modal = ({ modalImgId }: { modalImgId: string }) => {
             </Header>
             <Main>
               <ImgWrapper>
-                <img src={modalInfo.imgUrl} alt="" />
+                <img
+                  src={modalInfo.imgUrl.regular}
+                  alt={modalInfo.description}
+                  srcSet={`${modalInfo.imgUrl.small} 419w,
+                ${modalInfo.imgUrl.regular} 780w,
+                ${modalInfo.imgUrl.full} 1030w,
+                `}
+                />
               </ImgWrapper>
               <ImgDetail {...modalInfo} />
               {modalInfo.collections && (
