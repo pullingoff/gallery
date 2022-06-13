@@ -6,24 +6,25 @@ interface useIntersectionObserverProps {
   onIntersect: IntersectionObserverCallback;
 }
 
+// 페이지의 bottom을 감지하는 옵저버
 const useIntersectionObserver = ({
   onIntersect,
 }: useIntersectionObserverProps) => {
-  const [target, setTarget] = useState<HTMLElement | null | undefined>(null);
+  const [bottom, setBottom] = useState<HTMLElement | null | undefined>(null);
 
   useEffect(() => {
-    if (!target) return;
+    if (!bottom) return;
 
     const observer: IntersectionObserver = new IntersectionObserver(
       onIntersect,
       { rootMargin: '100px', threshold: 0.5 }
     );
-    observer.observe(target);
+    observer.observe(bottom);
 
-    return () => observer.unobserve(target);
-  }, [onIntersect, target]);
+    return () => observer.unobserve(bottom);
+  }, [onIntersect, bottom]);
 
-  return { setTarget };
+  return { setTarget: setBottom };
 };
 
 export { useIntersectionObserver };

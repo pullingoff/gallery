@@ -6,7 +6,7 @@ import CoverPhotos from './CoverPhotos';
 // 컬렉션 모음
 const Collections = ({ collections }: { collections: ICollection[] }) => {
   return (
-    <div style={{ textAlign: 'left' }}>
+    <section style={{ textAlign: 'left' }}>
       <h3>Related Collections</h3>
       <CollectionWrapper>
         {collections.map(item => (
@@ -16,7 +16,7 @@ const Collections = ({ collections }: { collections: ICollection[] }) => {
           </div>
         ))}
       </CollectionWrapper>
-    </div>
+    </section>
   );
 };
 

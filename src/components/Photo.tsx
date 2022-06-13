@@ -49,8 +49,9 @@ const DetailWrapper = styled.div`
 
 const Detail = styled.div`
   font-weight: bold;
+  transition: transform 250ms;
   &:hover {
-    // font-size: 1.5rem;
+    transform: translateY(-10px);
   }
 `;
 
