@@ -8,6 +8,10 @@
 
 [Unsplash API](https://unsplash.com/documentation)를 사용해 만들어본 사진첩입니다.
 
+### 실행 방법
+
+소스코드를 내려받은 후 `npm install`로 노드 패키지들을 설치하고 `npm start`!
+
 ## 기본 기능
 
 - **최신 사진 목록**을 가져오고, 검색어가 입력되면 **검색 결과**를 표시합니다.

@@ -2,7 +2,6 @@ import React, { ChangeEvent } from 'react';
 import { FormEvent } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { createUniqueName } from 'typescript';
 import { getImages } from '../apis';
 import { useIntersectionObserver } from '../apis/infiniteScroll';
 import { ToTopBtn } from '../assets/ToTopBtn';
