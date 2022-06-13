@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { getImages } from '../apis';
 import { useIntersectionObserver } from '../apis/infiniteScroll';
 import { ToTopBtn } from '../assets/ToTopBtn';
-// import { ToTopBtn } from '../assets/toTopBtn';
 import { SearchBarForm, SubmitBtn, TextInput } from '../styles/searchBar';
 import { IImageListData } from '../types';
 import PhotoList from './PhotoList';
@@ -26,7 +25,8 @@ export const MainContentScroll = () => {
     const { totalImgCnt, eachPageImgCnt } = imageInfo;
 
     if (isIntersecting) {
-      if (totalImgCnt < eachPageImgCnt * (currPage - 1)) {
+      if (totalImgCnt <= 0 || totalImgCnt < eachPageImgCnt * (currPage - 1)) {
+        // 더 불러올 이미지가 없는 경우
         return;
       }
       getImages(searchWord, currPage + 1).then(resp => {
@@ -42,7 +42,7 @@ export const MainContentScroll = () => {
       });
     }
   };
-  const { setTarget } = useIntersectionObserver({ onIntersect });
+  const { setBottom } = useIntersectionObserver({ onIntersect });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ export const MainContentScroll = () => {
         <ToTopBtn />
       </ScrollToTopBtn>
       <PhotoList {...imageInfo} />
-      <div ref={setTarget} />
+      <div ref={setBottom} />
     </MainWrapper>
   );
 };

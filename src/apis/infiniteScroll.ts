@@ -24,7 +24,7 @@ const useIntersectionObserver = ({
     return () => observer.unobserve(bottom);
   }, [onIntersect, bottom]);
 
-  return { setTarget: setBottom };
+  return { setBottom };
 };
 
 export { useIntersectionObserver };
