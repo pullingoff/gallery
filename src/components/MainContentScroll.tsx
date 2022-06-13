@@ -2,12 +2,14 @@ import React, { ChangeEvent } from 'react';
 import { FormEvent } from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { createUniqueName } from 'typescript';
 import { getImages } from '../apis';
 import { useIntersectionObserver } from '../apis/infiniteScroll';
 import { ToTopBtn } from '../assets/ToTopBtn';
 import { SearchBarForm, SubmitBtn, TextInput } from '../styles/searchBar';
 import { IImageListData } from '../types';
 import PhotoList from './PhotoList';
+import { uniqBy } from 'lodash';
 
 export const MAX_SCROLL_IMG_CNT = 500; // 50개 이상의 이미지를 띄우면 경고
 
@@ -31,12 +33,17 @@ export const MainContentScroll = () => {
       }
       getImages(searchWord, currPage + 1).then(resp => {
         if (resp) {
-          setImageInfo(({ results: prevResults }) => ({
+          setImageInfo(() => ({
             ...imageInfo,
             totalImgCnt: resp.totalImgCnt,
-            results: [...prevResults, ...resp.results],
+            results: uniqBy(
+              [...imageInfo.results, ...resp.results],
+              function (e) {
+                // latest로 가져올 경우 중복된 이미지를 받는 경우가 있어 id로 중복 제거
+                return e.id;
+              }
+            ),
           }));
-
           setCurrPage(currPage + 1);
         }
       });
