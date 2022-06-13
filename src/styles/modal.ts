@@ -26,7 +26,7 @@ export const Header = styled.header`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0;
 `;
 
 export const AuthorDetail = styled.div`

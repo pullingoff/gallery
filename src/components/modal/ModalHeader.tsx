@@ -30,7 +30,7 @@ const Header = styled.header`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 1rem;
 `;
 
 const AuthorDetail = styled.div`
