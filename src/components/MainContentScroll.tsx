@@ -4,9 +4,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { getImages } from '../apis';
 import { useIntersectionObserver } from '../apis/infiniteScroll';
+import { ToTopBtn } from '../assets/ToTopBtn';
+// import { ToTopBtn } from '../assets/toTopBtn';
 import { SearchBarForm, SubmitBtn, TextInput } from '../styles/searchBar';
 import { IImageListData } from '../types';
-
 import PhotoList from './PhotoList';
 
 export const MAX_SCROLL_IMG_CNT = 500; // 50개 이상의 이미지를 띄우면 경고
@@ -59,6 +60,11 @@ export const MainContentScroll = () => {
     });
   };
 
+  // scrollToTop 버튼 클릭시 부드럽게 위로 스크롤
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <MainWrapper>
       <SearchBarForm onSubmit={handleSubmit}>
@@ -71,12 +77,25 @@ export const MainContentScroll = () => {
         />
         <SubmitBtn type="submit" value="검색" />
       </SearchBarForm>
+      <ScrollToTopBtn onClick={scrollToTop}>
+        <ToTopBtn />
+      </ScrollToTopBtn>
       <PhotoList {...imageInfo} />
-
       <div ref={setTarget} />
     </MainWrapper>
   );
 };
+
+const ScrollToTopBtn = styled.button`
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 50px;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`;
 
 const MainWrapper = styled.main`
   // grid item 갯수를 최대 3개로 유지하기 위함
