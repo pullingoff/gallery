@@ -4,9 +4,8 @@
 
 ## 기술
 
-`React`, `TypeScript`, `Styled-components`, `REST API`
-
-[Unsplash API](https://unsplash.com/documentation)를 사용해 만들어본 사진첩입니다.
+- `React`, `TypeScript`, `Styled-components`, `REST API`, `Unsplash API`, `Intersection Observer API`
+- 반응형 웹, 시맨틱 마크업, 사용자 디바이스에 따른 이미지 크기 최적화
 
 ### 실행 방법
 
