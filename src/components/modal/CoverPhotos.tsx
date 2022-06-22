@@ -6,7 +6,6 @@ const CoverPhotos = (item: ICollection) => {
   const photos = item.preview_photos;
   const link = `https://unsplash.com/collections/${item.id}`;
 
-  // console.log(photos);
   return (
     <CoverPhotoA
       style={{ display: 'block' }}

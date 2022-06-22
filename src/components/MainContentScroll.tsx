@@ -60,9 +60,7 @@ export const MainContentScroll = () => {
     // currPage 초기화
     setCurrPage(1);
     getImages(searchWord).then(resp => {
-      if (resp) {
-        setImageInfo(resp);
-      }
+      if (resp) setImageInfo(resp);
     });
   };
 
